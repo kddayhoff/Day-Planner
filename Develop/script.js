@@ -8,7 +8,7 @@
 //4. Alloww users to save info to local storage
 //5. Make it so that rows change color depending on the time of day
     // a. for loop with if, else if, else (if i > x time then, if i < x time then, if i is neither then)
-var 
+
 
 
 $(document).ready(function(){
@@ -16,6 +16,29 @@ $(document).ready(function(){
 });
 console.log(moment().format('MMMM Do YYYY'));
 
+var btn = "#save-button1,#save-button2, #save-button3";
+
+$(btn).on("click", function() {
+    var userText = $("#user-input1").val();
+    var userInput = $("<h2>" + userText + "<h2>");
+    $("#text-here1").append(userInput);
+    console.log(userText);
+})
+
+// $(btn).on("click", function() {
+//     var userText = $("#user-input2").val();
+//     var userInput = $("<p>" + userText + "<p>");
+//     //$("#text-here1").append(userInput);
+//     console.log(userText);
+// })
+
+
+// $("#save-button2").on("click", function() {
+//     var userText = $("#user-input2").val();
+//     var userInput = $("<p>" + userText + "<p>");
+//     $("#user-input2").append(userInput);
+//     console.log(userText);
+// })
 
 
 
