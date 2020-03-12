@@ -16,8 +16,19 @@ $(document).ready(function(){
 });
 console.log(moment().format('MMMM Do YYYY'));
 
+//using HTML buttons and inputs
+$("#btnx").on("click", function() {
+    var userText = $("#text-here").val();
+    var userInput = $("<p>" + userText + "</p>");
+    $("#div").append(userInput);
+    
+        localStorage.setItem("8AM", userText);
+        console.log("8 AM " + userText);
+        $("#div").append(userInput);
+})
 
-function planner1() {
+//using JS to render items onto page
+function planner8() {
 // for (i = 0; i < 11; i++) {
     var time = $("<row col-10>", "<row>");
     var userInputForm = $("<input type='text' col-1 class='form-control'>", "<row>");
@@ -34,14 +45,10 @@ function planner1() {
         $("#div8").append(userInputForm);
 
     });
-    // $(btn).on("click", function() {
-    //     var stuff = localStorage.getItem("8AM");
-    //     $("#div8")
-    //}
     };
-planner1();
+planner8();
 
-function planner2() {
+function planner9() {
     // for (i = 0; i < 11; i++) {
     var time = $("<row col-10>", "<row>");
     var userInputForm = $("<input type='text' col-1 class='form-control'>", "<row>");
@@ -58,9 +65,9 @@ function planner2() {
         localStorage.getItem(userInput);
     }
     )};
-planner2();
+planner9();
 
-    function planner3() {
+    function planner10() {
         // for (i = 0; i < 11; i++) {
         var time = $("<row col-10>", "<row>");
         var userInputForm = $("<input type='text' col-1 class='form-control'>", "<row>");
@@ -74,13 +81,9 @@ planner2();
             var userInput = $(userInputForm).val();
             localStorage.setItem("10AM", userInput);
             console.log("10 AM " + userInput);
-        // function getBack () {
-        //     var name = localStorage.getItem("10 AM");
-        //     if (name !== null) $("#div10").val("10 AM");
-        // }
-        // getBack();
+    
         })};
-        planner3();
+        planner10();
         
       
        
@@ -94,15 +97,7 @@ planner2();
 //     console.log(userText);
 //     localStorage.setItem("8 AM", userText);
 // })
-// function container () {
-// for (i=0; i < 12; i++) {
-//     // Re-creating Bootstrap in a for loop
-//     container.append($("<div></div>").addClass("row"));
-//     $(".row:eq(" + i + ")").append($("<div></div>").addClass("col-md-1"), $("<div>").addClass("col-md-10"), $("<div></div>").addClass("col-md-1"));
-//     $(".col-md-10:eq(" + i + ")").append($("<div></div>").addClass("hourSlot"), $("<div>").addClass("input-group mb-3"));
-//     $(".mb-3:eq(" + i + ")").append($("<div>").addClass("input-group-prepend"), $("<input>").addClass("form-control").attr("type", "text").attr("aria-label", "Text input with checkbox"));
-//     $(".input-group-prepend:eq(" + i + ")").append($("<input>").addClass("btn btn-primary").attr("type", "submit").attr("value", "Save"));
-//  } };
+// 
 // Don’t code each button static, render them with a loop and give each input a unique Id then you can console log the value. Don’t worry about a table, just make each loop create a div with a class of row so bootstrap formats it nice and pretty 
 // But first, DO NOT start with styling. Just get one div on the page, console log its value, get that to local storage, and then get moment to work on that single div. then after you’ve done that for one div, then you can role it out for the rest of the divs that you loop through
 // $("#btn9").on("click", function() {
