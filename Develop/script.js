@@ -1,147 +1,86 @@
-// √ 1. Get moment.js date on the page
-//2. Create table with 11 rows and 3 columns (bootstrap)
-    // a. left column is a time that is dynamic - ie syncs up with moment.js (I'm thinking some sort of hardcode and a for loop with momentjs that changes the color of the row when that time is reached) - seen this example in W3Schools
-        //-classes in css: row, hour, past, present, future, saveBtn
-    // √ b. Use bootstrap to create table
-//3. Allow the ability for users put in info into rows
-    // a. Text column will need input option (html <input> inside rows? or js?)
-//4. Alloww users to save info to local storage
-//5. Make it so that rows change color depending on the time of day
-    // a. for loop with if, else if, else (if i > x time then, if i < x time then, if i is neither then)
-
-
-
 $(document).ready(function(){
-      $("#currentDay").text(moment().format('MMMM Do YYYY'));
+    $("#currentDay").text(moment().format('MMMM Do YYYY'));
 });
 console.log(moment().format('MMMM Do YYYY'));
 
-//using HTML buttons and inputs
-$("#btnx").on("click", function() {
-    var userText = $("#text-here").val();
-    var userInput = $("<p>" + userText + "</p>");
-    $("#div").append(userInput);
-    
-        localStorage.setItem("8AM", userText);
-        console.log("8 AM " + userText);
-        $("#div").append(userInput);
+ var dailyItems = [];
+function renderItems () {
+$(btn8).on("click", function(event) {
+  event.preventDefault();
+    var userText = $("#user-input8").val();
+    var userInput = $("<h1>" + userText + "</h1>");
+    $("#user-input8").append(userInput);
+    console.log(userText);
+    localStorage.setItem("8 AM", userText);
+    dailyItems.push(userText);
 })
 
-//using JS to render items onto page
-function planner8() {
-// for (i = 0; i < 11; i++) {
-    var time = $("<row col-10>", "<row>");
-    var userInputForm = $("<input type='text' col-1 class='form-control'>", "<row>");
-    var btn = $("<button class='btn btn-primary' col-10>", "<row>");
+$(btn9).on("click", function(event) {
+    event.preventDefault();
+    var userText = $("#user-input9").val();
+    var userInput = $("<h1>" + userText + "</h1>");
+    $("#user-input9").append(userInput);
+    console.log(userText);
+    localStorage.setItem("9 AM", userText);
+    dailyItems.push(userText);
+})
 
-    $(btn).text("Save");
-    $("#div8").append(time, userInputForm, btn);
-    $(time).text("8 AM");
+$(btn10).on("click", function(event) {
+    event.preventDefault();
+    var userText = $("#user-input10").val();
+    var userInput = $("<h1>" + userText + "</h1>");
+    $("#user-input10").append(userInput);
+    console.log(userText);
+    localStorage.setItem("10 AM", userText);
+    dailyItems.push(userText);
+})
+}
+renderItems();
 
-    $(btn).on("click", function() {
-        var userInput = $(userInputForm).val();
-        localStorage.setItem("8AM", userInput);
-        console.log("8 AM " + userInput);
-        $("#div8").append(userInputForm);
+function init() {
+ 
+  var storedItems = JSON.parse(localStorage.getItem("dailyItems"));
 
-    });
-    };
-planner8();
+  if (storedItems !== null) {
+    dailyItems = storedItems;
+  }
+  
+  renderItems();
+}
 
-function planner9() {
-    // for (i = 0; i < 11; i++) {
-    var time = $("<row col-10>", "<row>");
-    var userInputForm = $("<input type='text' col-1 class='form-control'>", "<row>");
-    var btn = $("<button class='btn btn-primary' col-10>", "<row>");
+function storedItems() {
+  // Stringify and set "todos" key in localStorage to todos array
+  localStorage.setItem("dailyItems", JSON.stringify(dailyItems));
+}
+  var time = 11;
 
-    $(btn).text("Save");
-    $("#div9").append(time, userInputForm, btn);
-    $(time).text("9 AM");
+  function timeColor() {
 
-    $(btn).on("click", function() {
-        var userInput = $(userInputForm).val();
-        localStorage.setItem("9AM", userInput);
-        console.log("9 AM " + userInput);
-        localStorage.getItem(userInput);
-    }
-    )};
-planner9();
-
-    function planner10() {
-        // for (i = 0; i < 11; i++) {
-        var time = $("<row col-10>", "<row>");
-        var userInputForm = $("<input type='text' col-1 class='form-control'>", "<row>");
-        var btn = $("<button class='btn btn-primary' col-10>", "<row>");
-        
-        $(btn).text("Save");
-        $("#div10").append(time, userInputForm, btn);
-        $(time).text("10 AM");
-
-        $(btn).on("click", function() {
-            var userInput = $(userInputForm).val();
-            localStorage.setItem("10AM", userInput);
-            console.log("10 AM " + userInput);
+    for (var i = 0; i < time; i++);
     
-        })};
-        planner10();
-        
-      
-       
-
-// var btn = $("#eight-am").btn("button");
-// for (var i = 0; 1 < )
-// $(btn).on("click", function() {
-//     var userText = $("#user-input8").val();
-//     var userInput = $("<h1>" + userText + "</h1>");
-//     $("#user-input8").append(userInput);
-//     console.log(userText);
-//     localStorage.setItem("8 AM", userText);
-// })
-// 
-// Don’t code each button static, render them with a loop and give each input a unique Id then you can console log the value. Don’t worry about a table, just make each loop create a div with a class of row so bootstrap formats it nice and pretty 
-// But first, DO NOT start with styling. Just get one div on the page, console log its value, get that to local storage, and then get moment to work on that single div. then after you’ve done that for one div, then you can role it out for the rest of the divs that you loop through
-// $("#btn9").on("click", function() {
-//     var userText = $("#user-input9").val();
-//     var userInput = $("<h1>" + userText + "</h1>");
-//     $("#user-input9").append(userInput);
-//     console.log(userText);
-//     localStorage.setItem("9 AM", userText);
-// })
-
-// var btn1 = "#btn1";
-// console.log(btn1);
-
-// $("#btn1").on("click", function() {
-//     var userText = $(".user-input").val();
-//     var userInput = $("<h2>" + userText + "<h2>");
-//     $("#text-here1").append(userInput);
-//     console.log(userText);
-// })
-
-// {/* <input class='todo' data-time="8am">
-// <button id="8am"></button>
-
-//var input = $(".todo").val();
-// console.log(input);
-
-// $("#8am).on("click", function()) {
-//     $("")
-// }
-// $(btn).on("click", function() { */}
-//     var userText = $("#user-input2").val();
-//     var userInput = $("<p>" + userText + "<p>");
-//     //$("#text-here1").append(userInput);
-//     console.log(userText);
-// })
-
-
-// $("#save-button2").on("click", function() {
-//     var userText = $("#user-input2").val();
-//     var userInput = $("<p>" + userText + "<p>");
-//     $("#user-input2").append(userInput);
-//     console.log(userText);
-// })
-
-
-
+    var past = $(".time-count").addClass(".past");
+    var present = $(".time-count").addClass(".present");
+    var future = $(".time-count").addClass(".future");
+    var currentTime = moment();
+    
+    if (time  < currentTime) { 
+      past.toggle();
+      past = "past";
+      console.log(past);
+    } 
+     else if (time = currentTime) {
+       present.toggle();
+       present = "present";
+       console.log(present);
+    } 
+     else (time > currentTime) 
+       future.toggle();
+       future = "future";
+      console.log(future);
+  } 
+  
+timeColor();
+  $(".time-count").append(timeColor);
+ 
+  
 

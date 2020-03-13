@@ -18,53 +18,18 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    
     <link rel="stylesheet" href="style.css" />
-    <title>Day Scheduler</title>
+    <title>Work Day Scheduler</title>
   </head>
 
   <body>
-    <container id="container">
     <header class="jumbotron">
       <h1 class="display-3">Day Scheduler</h1>
       <p class="lead">What's with today, today? -Lucas, <i>Empire Records</i></p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container"> 
-      <div class="form-group">
-          
-        <input type="text" id="text-here" class="form-control" aria-describedby="emailHelp">
-        
-     
-      <button type="button" id="btnx" class="btn btn-primary">Primary</button>
-      <div id="div"></div>
-      
-      <!-- divs for JS rendering -->
-      <!-- <div id="div8">
-        <p id="p8"></p>
-      </div>
-      <div id="div9"></div>
-      <div id="div10"></div>
-      <div id="div11"></div>
-      <div id="div12"></div>
-      <div id="div1"></div>
-      <div id="div2"></div>
-      <div id="div3"></div>
-      <div id="div4"></div>
-      <div id="div5"></div>
-      <div id="div6"></div> -->
-      <!-- <h3>8 AM</h3> -->
-       </container> 
-
-
-       <!-- <input id="user-input8">
-     <div id="eight-am"></div>
-      <button type="button" class="btn btn-secondary" id="btn8" >Save</button> -->
-   
-        <!-- Table which holds time slot, input form, and save button, connected to function in JS saving it to local storage -->
-
-    <!-- <table class="table table-bordered">
+    <div class="container">
+      <table class="table table-bordered">
       <thead>
         <tr>
           <th scope="col">Time</th>
@@ -73,45 +38,142 @@
         </tr>
       </thead>
         <tbody>
-          <tr>
-            <td scope="row" id="eight-am">8:00 AM</td>
+
+          <tr class="time-count" class="past" class="present" class="future">
+            <td scope="row" class="hour" id="eight-am">8:00 AM</td>
             <td>
               <div class="form-group">
-                <input type="text" class="form-control" id="user-input8" id="formGroupExampleInput" >
+                <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input8" id="formGroupExampleInput" >
               </div>
             </td>  
             <td>
-              <button type="button" class="btn btn-secondary" id="btn8" >Save</button>
+              <button type="button" class="btn btn-secondary"  id="btn8" >Save</button>
             </td>
           </tr> 
 
-          <tr>
+          <tr class="time-count">
             <td scope="row" id="nine-am">9:00 AM</td>
             <td>
               <div class="form-group">
-              <input type="text" class="form-control" id="user-input9"" id="formGroupExampleInput">
+              <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input9" id="formGroupExampleInput">
               </div>
             </td>  
             <td>
               <button type="button" id="btn9" class="btn btn-secondary">Save</button>
             </td>
           </tr> 
-            <th scope="row" id="ten-am">10:00 AM</th> -->
-             <!-- -->
-<!-- 
 
+          <tr class="time-count">
+          <th scope="row" id="ten-am">10:00 AM</th> 
+            <td>
+              <div class="form-group">
+              <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input10"" id="formGroupExampleInput">
               </div>
-            </td>        
-          </tr>
-          
-      
-        </tbody>
-      </table>
-      
+            </td>  
+            <td>
+              <button type="button" id="btn10" class="btn btn-secondary">Save</button>
+            </td>
+          </tr> 
+
+          <tr class="time-count">
+            <th scope="row" id="eleven-am">11:00 AM</th> 
+              <td>
+                <div class="form-group">
+                <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input11" id="formGroupExampleInput">
+              </div>
+            </td>  
+            <td>
+              <button type="button" id="btn11" class="btn btn-secondary">Save</button>
+            </td>
+          </tr> 
+
+          <tr class="time-count">
+            <th scope="row" id="twelve-pm">12:00 PM</th> 
+              <td>
+                <div class="form-group">
+                <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input12" id="formGroupExampleInput">
+              </div>
+            </td>  
+            <td>
+              <button type="button" id="btn12" class="btn btn-secondary">Save</button>
+            </td>
+          </tr> 
+
+          <tr class="time-count">
+            <th scope="row" id="one-pm">1:00 PM</th> 
+              <td>
+                <div class="form-group">
+                <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input1" id="formGroupExampleInput">
+              </div>
+            </td>  
+            <td>
+              <button type="button" id="btn1" class="btn btn-secondary">Save</button>
+            </td>
+          </tr> 
+
+           <tr class="time-count">
+            <th scope="row" id="two-pm">2:00 PM</th> 
+              <td>
+                <div class="form-group">
+                <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input10" id="formGroupExampleInput">
+              </div>
+            </td>  
+            <td>
+              <button type="button" id="btn2" class="btn btn-secondary">Save</button>
+            </td>
+          </tr> 
+
+          <tr class="time-count">
+            <th scope="row" id="three-pm">3:00 PM</th> 
+              <td>
+                <div class="form-group">
+                <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input3" id="formGroupExampleInput">
+              </div>
+            </td>  
+            <td>
+              <button type="button" id="btn3" class="btn btn-secondary">Save</button>
+            </td>
+          </tr>  
+
+          <tr class="time-count">
+            <th scope="row" id="four-pm">4:00 PM</th> 
+              <td>
+                <div class="form-group">
+                <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input4" id="formGroupExampleInput">
+              </div>
+            </td>  
+            <td>
+              <button type="button" id="btn4" class="btn btn-secondary">Save</button>
+            </td>
+          </tr> 
+          <tr class="time-count">
+            <th scope="row" id="five-pm">5:00 PM</th> 
+              <td>
+                <div class="form-group">
+                <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input5" id="formGroupExampleInput">
+              </div>
+            </td>  
+            <td>
+              <button type="button" id="btn5" class="btn btn-secondary">Save</button>
+            </td>
+          </tr> 
+
+          <tr class="time-count">
+            <th scope="row" id="six-pm">6:00 PM</th> 
+              <td>
+                <div class="form-group">
+                <input type="text" class="form-control" class="hour" class="past" class="present" class="future" id="user-input5" id="formGroupExampleInput">
+              </div>
+            </td>  
+            <td>
+              <button type="button" id="btn6" class="btn btn-secondary">Save</button>
+            </td>
+          </tr> 
+          </table>
     </div>
-     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="script.js"></script>
-   
   </body>
 </html>
