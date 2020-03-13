@@ -2,7 +2,7 @@
 Schedule your busy day with this day planner app.
 ## Technology
 
-HTML, CSS, Javascript, and jQuery
+HTML, CSS, Javascript, moment.js and jQuery
 ​​
 ## Installation
 
