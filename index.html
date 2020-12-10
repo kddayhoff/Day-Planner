@@ -40,28 +40,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="time-count" class="past" class="present" class="future">
-            <td scope="row" class="hour" id="eight-am">8:00 AM</td>
-            <td>
-              <div class="form-group">
-                <input
+          <!-- parent element -->
+          <div class="time-count row time-block" class="past" class="present" class="future" id="8">
+
+            <div class="hour col-md-1" >8:00 AM</div>
+            
+              <!-- sibling of the button -->
+                <textarea class="col-md-10 description"
                   type="text"
-                  class="form-control"
-                  class="hour"
-                  class="past"
-                  class="present"
-                  class="future"
+                 
+            
                   id="user-input8"
                   id="formGroupExampleInput"
-                />
-              </div>
-            </td>
-            <td>
-              <button type="button" class="btn btn-secondary" id="btn8">
+                ></textarea>
+              <!-- child of the row -->
+              <button type="button" class="btn saveBtn col-md-1" id="btn8">
                 Save
               </button>
-            </td>
-          </tr>
+            
+            <!-- <li class="todoItem"></li> -->
+          </div>
 
           <tr class="time-count">
             <td scope="row" id="nine-am">9:00 AM</td>

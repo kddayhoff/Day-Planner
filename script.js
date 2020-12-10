@@ -3,78 +3,87 @@ var dailyItems = [];
 //Puts current day on the planner title
 $(document).ready(function () {
   $("#currentDay").text(moment().format("MMMM Do YYYY"));
-});
-console.log(moment().format("MMMM Do YYYY"));
 
-function renderItems() {
-  $(btn8).on("click", function (event) {
-    event.preventDefault();
-    var userText = $("#user-input8").val();
-    var userInput = $("<h1>" + userText + "</h1>");
-    $("#user-input8").append(userInput);
-    console.log(userText);
-    localStorage.setItem("8 AM", userText);
-    dailyItems.push(userText);
+  console.log(moment().format("MMMM Do YYYY"));
+
+  $(".saveBtn").on("click", function () {
+    var time = $(this).parent().attr("id");
+    var scheduleText = $(this).siblings(".description").val();
+    localStorage.setItem(time, scheduleText);
   });
 
-  $(btn9).on("click", function (event) {
-    event.preventDefault();
-    var userText = $("#user-input9").val();
-    var userInput = $("<h1>" + userText + "</h1>");
-    $("#user-input9").append(userInput);
-    console.log(userText);
-    localStorage.setItem("9 AM", userText);
-    dailyItems.push(userText);
-  });
+  function renderItems() {
+    $(btn8).on("click", function (event) {
+      event.preventDefault();
+      var userText = $("#user-input8").val();
+      var userInput = $("<h1>" + userText + "</h1>");
+      $("#user-input8").append(userInput);
+      console.log(userText);
+      localStorage.setItem("8 AM", userText);
+      dailyItems.push(userText);
+    });
 
-  $(btn10).on("click", function (event) {
-    event.preventDefault();
-    var userText = $("#user-input10").val();
-    var userInput = $("<h1>" + userText + "</h1>");
-    $("#user-input10").append(userInput);
-    console.log(userText);
-    localStorage.setItem("10 AM", userText);
-    dailyItems.push(userText);
-  });
-}
-renderItems();
+    $(btn9).on("click", function (event) {
+      event.preventDefault();
+      var userText = $("#user-input9").val();
+      var userInput = $("<h1>" + userText + "</h1>");
+      $("#user-input9").append(userInput);
+      console.log(userText);
+      localStorage.setItem("9 AM", userText);
+      dailyItems.push(userText);
+    });
 
-function init() {
-  var storedItems = JSON.parse(localStorage.getItem("dailyItems"));
-
-  if (storedItems !== null) {
-    dailyItems = storedItems;
+    $(btn10).on("click", function (event) {
+      event.preventDefault();
+      var userText = $("#user-input10").val();
+      var userInput = $("<h1>" + userText + "</h1>");
+      $("#user-input10").append(userInput);
+      console.log(userText);
+      localStorage.setItem("10 AM", userText);
+      dailyItems.push(userText);
+    });
   }
-  renderItems();
-}
+  // renderItems();
 
-function storedItems() {
-  // Stringify and set "todos" key in localStorage to todos array
-  localStorage.setItem("dailyItems", JSON.stringify(dailyItems));
-}
-var time = 11;
+  // function init() {
+  //   var storedItems = JSON.parse(localStorage.getItem("dailyItems"));
 
-function timeColor() {
-  for (var i = 0; i < time; i++);
+  //   if (storedItems !== null) {
+  //     dailyItems = storedItems;
+  //   }
 
-  var past = $(".time-count").addClass(".past");
-  var present = $(".time-count").addClass(".present");
-  var future = $(".time-count").addClass(".future");
-  var currentTime = moment();
+  //   // renderItems();
+  // }
 
-  if (time < currentTime) {
-    past.toggle();
-    past = "past";
-    console.log(past);
-  } else if ((time = currentTime)) {
-    present.toggle();
-    present = "present";
-    console.log(present);
-  } else time > currentTime;
-  future.toggle();
-  future = "future";
-  console.log(future);
-}
+  // function storedItems() {
+  //   // Stringify and set "todos" key in localStorage to todos array
+  //   localStorage.setItem("dailyItems", JSON.stringify(dailyItems));
+  // }
+  // var time = 11;
 
-timeColor();
-$(".time-count").append(timeColor);
+  function timeColor() {
+    var currentTime = moment().hours();
+    $(".time-block").each(function () {
+      var blockTime = parseInt($(this).attr("id"));
+
+      if (blockTime < currentTime) {
+        $(this).addClass("past");
+      } else if ((blockTime = currentTime)) {
+        $(this).removeClass("past");
+        $(this).addClass("present");
+      } else {
+        $(this).removeClass("past");
+        $(this).removeClass("present");
+        $(this).addClass("future");
+      }
+    });
+  }
+
+  timeColor();
+
+  $(".time-count").append(timeColor);
+
+  $("#8 .description").val(localStorage.getItem("8"));
+
+  $("#9 .description").val(localStorage.getItem("9"));
+});
